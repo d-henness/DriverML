@@ -1,18 +1,20 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use autodie;
 use strict;
 use Getopt::Long;
 our%chara;
 our$input_file;
 our$date;
+our$path;
 our$out_name;
 my$optionOK=GetOptions(
 	'i|input_file=s' =>\$input_file,
         'd|date=s' =>\$date,
+        'p|path=s' =>\$path,
 );
 $out_name=$date."_gene-characteristic.tmp";
 
-open CHAR,'<',"gene-characteristic-unix.txt";
+open CHAR,'<',$path."gene-characteristic-unix.txt";
 
 open PLUS,'>',"$out_name";
 my$header=<CHAR>;
@@ -39,7 +41,7 @@ while(<INPUTFILE>){
 }
 close INPUTFILE;
 our%genome;
-open GENOME,'<',"genome-characteristic.txt";
+open GENOME,'<',$path."genome-characteristic.txt";
 $header=<GENOME>;
 while(<GENOME>){
 	chomp;
