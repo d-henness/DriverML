@@ -31,6 +31,7 @@ my%fh;
 foreach my$i(1..$class_number){
 	open $fh{$i},">${date}_subclass-$i.tmp";
 }
+print "$input_file\n";
 open INPUT,'<',"$input_file";
 open TMP,'>',"${date}_genes-which-are-in-input-file-but-not-in-the-chara-file.tmp";
 our$n=0;#the number of genes which are in input file but not in the characteristic file------#
@@ -39,6 +40,7 @@ while(<INPUT>){
 	my@element=split(/\t/);#print "$element[1]\n";
 	my$class=$gene_class{$element[1]};
 	if(exists($gene_class{$element[1]})){
+    print "$class\n";
 		$fh{$class}->print("$_\n");
 	}
 	else{

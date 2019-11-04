@@ -3,6 +3,7 @@ rm(list = ls())
 args <- commandArgs(trailingOnly = TRUE)
 infileExp <- args[1]
 infileObs <- args[2]
+print(infileExp)
 if(is.na(infileExp) | is.na(infileObs))stop('No input files in R!')
 geneRatio <- 1
 indelRatio <- 0.05

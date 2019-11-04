@@ -239,5 +239,5 @@ $path/assemble.r $cluster_final 1 $output_prefix $date
 
 # remove temporary files
 echo $date
-rm ${date}*.tmp
-rm ${date_pre}*.tmp
+#rm ${date}*.tmp
+#rm ${date_pre}*.tmp
